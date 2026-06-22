@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>💙 Priya's Blue Fashion Store Admin</title>
+
+<style>
+body{
+    font-family:Arial;
+    background:#e6f2ff;
+    margin:0;
+    padding:20px;
+}
+
+.box{
+    max-width:500px;
+    margin:auto;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+    text-align:center;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#2196F3;
+    color:white;
+    border:none;
+    cursor:pointer;
+    border-radius:5px;
+    font-size:16px;
+}
+
+h2{
+    color:#0066cc;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>💙 Priya's Blue Fashion Store 💙</h2>
+
+<p>Click the button to load 6 Blue Dresses</p>
+
+<button onclick="loadProducts()">
+Load Blue Dresses
+</button>
+
+</div>
+
+<script>
+
+function loadProducts(){
+
+let products = [
+
+{
+name:"Sky Blue Kurti",
+price:999,
+image:"https://ramrajcotton.in/cdn/shop/files/1_e3669f0a-b28f-4655-889f-21e22f6443e3.jpg?v=1778933412&width=1000"
+},
+
+{
+name:"Navy Blue Gown",
+price:1999,
+image:"https://dressrent.in/cdn/shop/products/WhatsAppImage2022-08-16at09.58.34_1024x1024@2x.jpg?v=1661930873"
+},
+
+{
+name:"Royal Blue Frock",
+price:1499,
+image:"https://i.pinimg.com/originals/84/6a/d1/846ad1101aa6573dd6fe6eafaade1df7.jpg"
+},
+
+{
+name:"Aqua Blue Party Dress",
+price:2499,
+image:"https://images.meesho.com/images/products/530688104/ken4g_512.avif?width=512"
+},
+
+{
+name:"Baby Blue Saree",
+price:2999,
+image:"https://i.pinimg.com/736x/27/25/3c/27253cc3c54b664b783723ccbea2ffcd.jpg"
+},
+
+{
+name:"Sapphire Blue Lehenga",
+price:4999,
+image:"https://i.pinimg.com/736x/ae/74/0f/ae740f096a5fd854cdd52c06c34fe8a1.jpg"
+}
+
+];
+
+localStorage.setItem("products", JSON.stringify(products));
+
+alert("💙 6 Blue Dresses Loaded Successfully!");
+
+window.location.href = "products.html";
+
+}
+
+</script>
+
+</body>
+</html>

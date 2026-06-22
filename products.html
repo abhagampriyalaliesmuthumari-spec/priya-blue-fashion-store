@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>💙 Priya's Blue Fashion Store</title>
+
+<style>
+body{
+    font-family:Arial;
+    padding:20px;
+    background:#e6f2ff;
+}
+
+h1{
+    color:#0066cc;
+}
+
+.cart-btn{
+    width:200px;
+    padding:10px;
+    background:#0066cc;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    margin-bottom:15px;
+}
+
+.products{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.card{
+    width:220px;
+    background:white;
+    padding:10px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:5px;
+}
+
+button{
+    width:100%;
+    padding:10px;
+    background:#2196F3;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+</style>
+
+</head>
+<body>
+
+<h1>💙 Priya's Blue Fashion Store 💙</h1>
+
+<a href="cart.html">
+<button class="cart-btn">🛒 View Cart</button>
+</a>
+
+<h3>🛒 Cart Items: <span id="count">0</span></h3>
+
+<div class="products" id="products"></div>
+
+<script>
+
+let products = JSON.parse(localStorage.getItem("products")) || [];
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+document.getElementById("count").innerText = cart.length;
+
+let container = document.getElementById("products");
+
+products.forEach(product => {
+
+container.innerHTML += `
+<div class="card">
+    <img src="${product.image}">
+    <h3>${product.name}</h3>
+    <p>₹${product.price}</p>
+
+    <button onclick="addToCart('${product.name}', ${product.price})">
+        Add to Cart
+    </button>
+</div>
+`;
+
+});
+
+function addToCart(name, price){
+
+cart.push({
+    name:name,
+    price:price
+});
+
+localStorage.setItem("cart", JSON.stringify(cart));
+
+document.getElementById("count").innerText = cart.length;
+
+alert("💙 Added to Cart");
+
+}
+
+</script>
+
+</body>
+</html>
